@@ -1,0 +1,21 @@
+version: 1
+services:
+  - type: web
+    name: trenajer
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    regions:
+      - europe  # Регион, близкий к Украине
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        value: 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+      - key: DATABASE_URL_1
+        value: sqlite:////data/Users.db  # Путь к первой базе данных
+      - key: DATABASE_URL_2
+        value: sqlite:////data/game_tbl.db  # Путь ко второй базе данных
+      - key: DATABASE_URL_3
+        value: sqlite:////data/Game.db  # Путь к третьей базе данных # Укажите путь к вашей базе данных
+    webSocket: true  # Включите поддержку WebSocket
