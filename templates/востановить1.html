@@ -1,0 +1,15 @@
+{% extends 'база.html' %}
+{% block content %}
+<div class="result">
+<form method='post' action="/auth/востановить" >
+<h3>  Відновлення паролю </h3>
+<h3>  Введи Твоє імя  </h3>
+<input type="text" name="name" required  autocomplete="off" autofocus><br><br>
+<input type="hidden" name="ret"  value='1'>
+<input type='submit' value="Продовжити">
+</form>
+<a href="/auth/login"  class="button">Увійти</a>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    
+    {%if user%}
+      {%if data['enter']==0%}
+        Вiтаю тебе {{user}}!<br>
+        Готовий прокачати свiй мозок!?<br>
+        Ну то - 
+        <a href='/titul'> погнали!</a><br>
+      {%else%}
+        Вiтаемо!!!<br>
+        Ти знову з нами <span class='myName'> {{user}}</span> !!! <br>
+        В тебе за плечима вже <span class='myName'> {{data['enter']}} </span> пiдходiв!<br>
+        Твiй найкращий час <span class='myName'> {{data['time']}} </span>!!!<br>
+        Ти знаэш що робити далi!<br>
+        <a href='/titul'> погнали!</a><br>
+      {%endif%}     
+    {% else%}
+      Ця програма навчить тебе швидко рахувати!<br>
+      Для продовження <a href='/auth/login'> увійди </a> в свій обліковий запис,<br>
+      або <a href='/auth/newuser'> зареєструйся </a>!!!<br><br>
+      Бажаю удачі!!!
+    {% endif%}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'база.html' %}
+{% block content %}
+<div class="result">
+<form method='post' action="/auth/newuser" >
+<h3>  Реєстрація нового користувача</h3>
+<input type="text" name="name"  value="{{ name}}" autocomplete="off" required autofocus ><br><br>
+{%if no_pass %}
+<p class='error'>{{no_pass}}<br></p>
+{% else%}
+<h3>  придумай новий пароль </h3>
+{%endif%}
+<input type="password" name="pas1" required autocomplete="off" ><br><br>
+<input type="password" name="pas2" required autocomplete="off" ><br>
+<input type="hidden" name="name" value={{name}} >
+<input type='submit' value="Підтвердити">
+</form>
+<a href="/login  class="button">Войти</a>
+</div>
+
+{% endblock %}

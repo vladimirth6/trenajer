@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id='canvasContainer' class='canvasContainer'>
+      <canvas id='myCanvas' class='myCanvas' ></canvas>
+</div>
+<script>
+  const username='{{user}}';
+  const level=JSON.parse('{{level|tojson}}');
+</script>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'база.html' %}
+{% block content %}
+
+<div>
+    <div class="result">
+      <p > </p>
+      <form method='post' action='/auth/login'>
+      <h3> Вхід на сайт</h3>
+       
+        {% if err_pass== 1%}
+          <div class='error'>
+            <h3>Неправильне імя користувча, чи пароль</h3>
+            <h3>Спробуй ще раз</h3>
+          </div>
+        {% elif err_pass== 2%}
+          <div class='error1'>
+            <h3>iмя {{name}} уже зареэстровано</h3>
+            <h3>Спробуй згадати пароль</h3>
+          </div>
+        {% else %}
+             <h3> Введи своє імя і пароль</h3>
+        {% endif%}
+        <input type="text" name="username"  required autocomplete="off" autofocus value={{name}} ><br><br>
+        <input type="password" name="password" required autocomplete="off"><br><br>
+        <input type='submit' value="ввести">
+      </form>
+      <a href="/auth/newuser" class="button">Регистрация</a>
+      
+        {% if err_pass== 1%}
+        <form method='get' action='/auth/востановить'>
+        <input type='submit' value="Забули пароль?" >
+        </form>
+        {% endif %}
+      
+    </div>
+</div>
+{%endblock%}
+

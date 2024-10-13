@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<div class="head_p">
+        <link rel="stylesheet" href='/static/style.css' />
+			  <title>Математичний тренажер</title>
+		  </div>
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+      <!--<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>-->
+      
+    </head>
+    <body class="mag_body">
+    	<table>
+    	<tbody>
+    	<tr>
+    		<td class="first_col"><!--первая колонка таблици сайта -->
+    		  <div>
+                    {% if user %}
+                        <a href='/auth/logout' > {{user}} </a>
+                        
+                        <input type="hidden" value={{user}} id='username'>
+                    {% else%}
+                        Інкогніто<br>
+                        <a href='/auth/login'> Увійти</a><br>
+                        <a href='/auth/newuser'> Реєстрація</a>
+                    {%endif%}
+                </div>
+            <div class="forChat" id="forChatCont" ></div>
+            <!--<input type='textarea' name='forChat' rows='4' id= 'forChat' value=''>-->
+            <textarea rows='4' cols='28' name='forChat' id='forChat' class='forChatText'> </textarea>
+    		</td>
+    		<td class="second_col"><!-- основная колонка сайта-->
+        		
+        			{% block content %}
+        				
+        			{% endblock %}
+        		
+        	</td>
+
+        	<td class="serd_col"><!-- последняя колонка сайта -->
+        	{% if lvl %}
+        		     рівень {{lvl}}
+        	{%endif%}
+        		    <p class="vv" id='zad'></p>
+        		    <p class="nv" id='errr'></p>
+        		        <!--<form method='get' action='/'>
+                        <input type='submit' value='Зпочатку'>
+                    </form>-->
+           <div class="myContainer" id="myContainer" ></div>
+    		 <!-- <h2 class="nv">Невірні відповіді</h2>-->
+        	</td>
+        </tr>
+        </tbody>
+        </table>
+        <p></p>
+    </body>
+
+<script src="{{url_for('static',filename='scripts/задания.js')}}"></script>
+<script src="{{url_for('static',filename='scripts/графика.js')}}"></script>    
+
+
+</html>
+
+

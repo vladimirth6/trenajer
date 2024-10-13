@@ -1,0 +1,19 @@
+{% extends 'база.html' %}
+{% block content %}
+<div class="result">
+<form method='post' action="/auth/newpass" >
+<h3>  Відновлення паролю {{ name }}</h3>
+{%if no_pass %}
+<p class='error'>{{no_pass}}<br></p>
+{% else%}
+<h4>  придумай новий пароль </h4>
+{%endif%}
+<input type="password" name="pas1" required autocomplete="off" autofocus><br><br>
+<h4>  Пароль ще раз</h4>
+<input type="password" name="pas2" required autocomplete="off">
+<input type="hidden" name="name" value={{name}} ><br>
+<input type='submit' value="Підтвердити">
+</form>
+</div>
+
+{% endblock %}

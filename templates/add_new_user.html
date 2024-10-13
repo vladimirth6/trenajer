@@ -1,0 +1,19 @@
+{% extends 'база.html' %}
+{% block content %}
+
+<div>
+    <div class="result">
+      <p > </p>
+      <form method='post' action='/auth/add_new_user'>
+        <h3> Введи додаткові дані для {{usernsme}}</h3>
+        <p class='error'>{{error}}<br></p>
+        Телефон <input type="text" name="phone"  autocomplete="off" required autofocus><br><br>
+        Пошта   <input type="text" name="mail" required autocomplete="off" ><br><br>
+        Запитання для відновлення пароля <input type="text" name="ansver" required autocomplete="off" ><br><br>
+        відповідь на нього <input type="text" name="otvet" required autocomplete="off"><br><br>
+        <input type='submit' value="Реєструватись">
+      </form>
+    </div>
+</div>
+{% endblock %}
+

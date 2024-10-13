@@ -1,0 +1,15 @@
+{% extends 'база.html' %}
+{% block content %}
+  <div class="result">
+  <h1>Вы уверены?</h1>
+  <form  method='post' action='/auth/logout'>
+    <label>
+      <input type="radio" name="answer" value="да" required> Да
+    </label>
+    <label>
+      <input type="radio" name="answer" value="нет" required> Нет
+    </label>
+    <button type="submit">Отправить</button>
+  </form>
+  </div>
+{% endblock %}

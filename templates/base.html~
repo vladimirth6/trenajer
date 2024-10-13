@@ -1,0 +1,111 @@
+
+
+<html>
+    <head>
+    <style>
+    .my-button {
+      /background-color: blue;
+      /color: white;
+      /padding: 10px 20px;
+      /border: none;
+      cursor: pointer;
+    }
+    .my-button.clicked {
+      background-color: red;
+    }
+  </style>
+    	<div class="head_p">
+    	<!--
+         jQuery 1.8 or later, 33 KB 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+		
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        
+        <link rel="stylesheet" href='/static/style.css' />
+        
+    		<table>
+    		<tbody>
+    		<tr width=100%>
+    		<td class="first_col_h">
+    		<!--<br><br><h2 class="vv">Вірні відповіді</h2>-->
+    		</td>
+    		<td class="second_col_h">
+    		  <h1 > Математичний тренажер </h1>
+    		  
+    		</td>
+    		<td  class="serd_col_h">
+    		<p>
+    		    <div>
+                    {% if user %}
+                        <a href='/auth/logout' > {{user}} </a>
+                        
+                        <input type="hidden" value={{user}} id='username'>
+                    {% else%}
+                        Інкогніто<br>
+                        <a href='/auth/login'> Увійти</a><br>
+                        <a href='/auth/newuser'> Реєстрація</a>
+                    {%endif%}
+                </div>
+                
+        		     рівень 3
+        		    <p class="vv"> Завдання-<p id='zad'> </p></p>
+        		    <p class="nv"> Невірно- <p id='errr'></p>
+        		        <form method='get' action='/'>
+                        <input type='submit' value='Зпочатку'>
+                        </form>
+                
+                {% if user %}
+                <a href='/result' > Результати</a>
+                {%endif%}
+    		 <!-- <h2 class="nv">Невірні відповіді</h2>-->
+    		</p>
+    		</td>
+    		</tr>
+    		</tbody>
+    		</table>
+			<title>Математичний тренажер</title>
+			
+		</div>
+    </head>
+    <body class="mag_body">
+    	<table>
+    	<tbody>
+    	<tr>
+    		<td class="first_col"><!--первая колонка таблици сайта -->
+    		
+    		<div class="myContainer" id="myContainer" contentEditable></div>
+    		</td>
+    		<td class="second_col"><!-- основная колонка сайта-->
+        		<div>
+        			{% block content %}
+        				
+        			{% endblock %}
+        		</div>
+        	</td>
+
+        	<td class="serd_col"><!-- последняя колонка сайта -->
+        	
+          	<div class="container">	
+          	  <img class="image image0 " src="static/mic.jpg" width="200" height="64">
+              <img class="image image1 " src="static/tr.jpg" width="200" height="64">
+              <img class="image image2 " src="static/r1.jpg" width="64" height="128">
+            </div>
+        	</td>
+        </tr>
+        </tbody>
+        </table>
+        <p></p>
+    </body>
+    
+
+
+</html>
+
+

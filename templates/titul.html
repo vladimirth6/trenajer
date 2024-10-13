@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+  <form method='post' action='/titul'>
+        <h3> Вибери рівень</h3><br>
+        <select name="level">
+          <option value="1">Дитятко</option>
+          <option value="2">Першокласник</option>
+          <option value="3">Продвинутий</option>
+          <option value="4">Хард</option>
+          <option value="5">Супер хард</option>
+          <option value="6">Сам хочу вибрати</option>
+        </select><br><br>
+        
+        <h3> Вибери гру</h3><br>
+        <select name="game">
+          <option value="1">Тренування</option>
+          <option value="bot">Бiй з ботом</option>
+          <option value="tin">Бiй з тынню</option>
+        </select><br><br>
+        <input type='submit' value="Почати">
+      </form>  
+</div>
+
+{% endblock %}

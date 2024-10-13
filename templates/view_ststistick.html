@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div>
+    <div >
+      {%for r in reault %}
+        Імя {{r[1]}}<br>
+        Рівень {{r[2]}}<br>
+        Завданнь {{r[5]}}<br>
+        Помилок {{r[6]}}<br>
+        ********************<br>    
+      {%endfor%}
+      твое место {{rait}}
+      <form method='get' action='/'>
+        
+        <input type='submit' value="Ясно">
+      </form>
+    </div>
+</div>
+
+
+  
+       			
+{% endblock %}

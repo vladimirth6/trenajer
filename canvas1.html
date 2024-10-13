@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<body>
+<title> Канва 3</title>
+    <style>
+      #canvasContainer {
+        position: relative;
+      }
+      #numberinput {
+        position: absolute;
+        top: 100 px;
+        left:10 px
+      }
+    </style>
+    <div id='canvasContainer' class='cv'>
+      <!--<canvas id='myCanvas' width='200' height='400'></canvas>-->
+      <canvas id='myCanvas'></canvas>
+      <input type="number" id="numberinput" min="0" max="999" step="1" aautofocus >
+    </div>
+    <script>
+      //получаем ссылку на элемент канвас
+      var dx=-1;
+      var dy=-1;
+      var x=1;
+      var y=1;
+      const canvas=document.getElementById('myCanvas');
+      const ctx=canvas.getContext('2d');
+      const imagePaths=["static/r1.jpg","static/mic.jpg","static/tr.jpg"];
+      function loadImage(path){
+        return new Promise((resolve,reject)=>{
+          const image=new Image();
+          image.onload=()=>resolve(image);
+          image.onerror=()=>reject(new Error(`Не удалось загрузить изображение :${paph}`));
+          image.src=path;});
+      }
+      
+      function loadImages(imagePaths){
+        const promises= imagePaths.map(path=>loadImage(path));
+        return Promise.all(promises);
+      }
+      function animate(images){
+          //очищаем канву
+          ctx.clearRect(0,0,canvas.width,canvas.height);
+          x=x+dx;
+          y=y+dy;
+          image=images[0];
+          ctx.drawImage(images[1],0,0,32,canvas.width);
+          ctx.drawImage(image,0,0,32,64);
+          ctx.drawImage(images[2],canvas.height-32,0,32,canvas.width);
+          ctx.font='24px Arial';
+          ctx.fillStyle='red';
+          ctx.fillText('2*2=',10,30);
+          
+          //получаем зачение поля input
+          const inputValue=document.getElementById('numberinput').value;
+          //отображаем введенное значение рядом с надписью
+          ctx.fillStyle='green';
+          ctx.fillText(inputValue,70,30);
+          
+          if (x<0){
+            dx=1;
+          }
+          if (x>136){
+            dx=-1;
+          }if (y<0){
+            dy=1;
+          }if (y>272){
+            dy=-1;
+          }
+          
+          //requestAnimationFrame(animate);//продолжаем анимировать
+        }
+      
+      loadImages(imagePaths)
+        .then (images=>{
+          const pimage=images[1];
+          
+          //for (var i=0;i<images.length; i++){
+          //    ctx.drawImage(images[i],(i*32)+128,0,32,64);
+          // }  
+          
+            animate(images);
+          
+        //ctx.clearRect(0,0,canvas.width,canvas.height);
+        //ctx.drawImage(image,0,0,32,64);
+        })
+        .catch(error=>{
+          console.error('Ошибка загрузки изображений:',error);
+        });
+      
+      //создаем новый обэкт изображения
+      //const image=new Image();
+      //установим источник изображения
+      //image.src="static/r1.jpg";
+      //image.title="123";
+      //image.onload=function(){
+        //задаем начальные координаты изображения
+      //  let x=canvas.width;
+       // let y=canvas.height;
+        //функция анимации
+        
+        //animate();
+      //};
+    </script>
+</body>
+</html>

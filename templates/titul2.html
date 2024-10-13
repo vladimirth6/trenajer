@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+  <h3>
+     Вибери сам собi завдання!!!
+  </h3>
+  <form method='post' action='/titul2'>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <h6> перше число вiд:</h6><br>
+            <input type='number' name='min1' value='1' min='0' max='999' step='1'>
+          </td>
+          <td>
+            <h6> перше число до:</h6><br>
+            <input type='number' name='max1' value='9' min='0' max='999' step='1'>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h6> друге число вiд:</h6><br>
+            <input type='number' name='min2' value='1' min='0' max='999' step='1'>
+          </td>
+          <td>
+            <h6> друге число до:</h6><br>
+            <input type='number' name='max2' value='9' min='0' max='999' step='1'>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h6> час на роздуми сек.</h6>
+            <input type='number' name='time' value='30' min='0' max='500' step='1'>
+          </td>
+          <td>
+              <h6> Вибери операцii(ю) </h6>
+              <select name="operand">
+                <option value="*/+-">*/+- (всi операцii)</option>
+                <option value="*/">*/ (множення дiлення)</option>
+                <option value="+-">+- (додавання вiднiмання)</option>
+                <option value="+">+ (додавання)</option>
+                <option value="-">- (вiднiмання)</option>
+                <option value="*">* (множення)</option>
+                <option value="/">/ (дiлення)</option>
+                <option value="+*">+* (додавання множення)</option>
+                <option value="-/">-/ (вiднiмання дiлення)</option>
+              </select>      
+          </td>
+        </tr>
+      </tbody>
+    </table>
+        <h3> Вибери гру</h3><br>
+        <select name="game">
+          <option value="1">Тренування</option>
+          <option value="bot">Бiй з ботом</option>
+          <option value="tin">Бiй з тынню</option>
+        </select><br><br>
+        <input type='submit' value="Почати">
+      </form>  
+</div>
+
+{% endblock %}

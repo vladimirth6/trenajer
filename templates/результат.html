@@ -1,0 +1,65 @@
+<html>
+    <head>
+    
+    
+    <title>Математичний тренажер</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .result {
+            text-align: center;
+        }
+        .myContainer2 {
+          width: 400px;
+          height: 200px;
+          padding: 5px;
+          border: 1px solid #ccc;
+          overflow: auto;
+          /white-space: pre-wrap;
+        }
+    </style>
+
+</head>
+<body>
+
+<div >
+    <div class="result">
+     
+      <h1>Твої результати польоту {{user}}</h1>
+      <h2> Ти зайняв {{rait}} місце</h2>
+      <h2> Всього завданнь - {{count}}</h2> 
+      <h2> Неправильних відповідей- {{err}}</h2>
+      {% if h != 0%}
+        <h0> Проблеми були з такими завданнями </h0><br>
+        <p class="myContainer2">
+          {% for q in h %}
+            {#{% if q[1]==1 %}#}
+              {#{{q[0]}}={{q[3]}}#}
+              {{q}}<br>
+            {#{% endif %}#}
+          {% endfor %}
+        </p>
+      {%else%}
+        <h0> Небуло жодної неправильної відповіді!!!</h0>  
+      
+      {%endif%}   
+      
+      
+      
+      
+
+      <form method='get' action='/'>
+        <input type='hidden' name='ret' value='новое'>
+        <input type='hidden' name='nam' value={{user}}>
+        <input type='submit' value='Далі'  autofocus>
+      </form>
+    </div>
+</div>
+</body>
+</html>
+
